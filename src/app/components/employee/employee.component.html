@@ -9,31 +9,38 @@
                     <thead>
 
                         <tr>
-                            <th>Client Id</th>
+                            <th>Serial No.</th>
+                            <!-- <th>Client Id</th> -->
                             <th>Name</th>
                             <th>Company</th>
                             <th>City</th>
                             <th>Pin Code</th>
                             <th>State</th>
-                            <th>Strength</th>
-                            <th>GST</th>
+                            <!-- <th>Strength</th>
+                            <th>GST</th> -->
                             <th>Contact</th>
-                            <th>Reg No.</th>
+                            <!-- <th>Reg No.</th> -->
+                             <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
                         @for(cln of clientList; track $index){
                         <tr>
-                            <td>{{cln.clientId}}</td>
+                            <td>{{$index + 1}}</td>
+                            <!-- <td>{{cln.clientId}}</td> -->
                             <td>{{cln.contactPersonName}}</td>
                             <td>{{cln.companyName}}</td>
                             <td>{{cln.address}}</td>
                             <td>{{cln.city}}</td>
                             <td>{{cln.pincode}}</td>
-                            <td>{{cln.employeeStrength}}</td>
-                            <td>{{cln.gstNo}}</td>
+                            <!-- <td>{{cln.employeeStrength}}</td> -->
+                            <!-- <td>{{cln.gstNo}}</td> -->
                             <td>{{cln.contactNo}}</td>
-                            <td>{{cln.regNo}}</td>
+                            <!-- <td>{{cln.regNo}}</td> -->
+                             <td><button class="btn btn-primary" (click)="onEdit(cln)">Edit</button></td>
+                             <td>
+                             <button class="btn btn-danger" (click)="onDelete(cln.clientId)">Delete</button>
+                            </td>
 
                         </tr>
                         }
@@ -52,52 +59,54 @@
                 <div class="row">
                     <div class="col-6">
                         <label for="">Person Name</label>
-                        <input type="text" class="form-control">
+                        <input type="text" [(ngModel)]="empObj.contactPersonName" class="form-control">
                     </div>
                     <div class="col-6">
                         <label for="">Company Name</label>
-                        <input type="text" class="form-control">
+                        <input type="text" [(ngModel)]="empObj.companyName" class="form-control">
                     </div>
                     <div class="col-6">
                         <label for="">Contact No.</label>
-                        <input type="text" class="form-control">
+                        <input type="text" [(ngModel)]="empObj.contactNo" class="form-control">
                     </div>
 
                     <div class="col-6">
                         <label for="">City</label>
-                        <input type="text" class="form-control">
+                        <input type="text" [(ngModel)]="empObj.city" class="form-control">
                     </div>
                     <div class="col-6">
                         <label for="">State</label>
-                        <input type="text" class="form-control">
+                        <input type="text" [(ngModel)]="empObj.state" class="form-control">
                     </div>
                     <div class="col-6">
                         <label for="">Pin Code</label>
-                        <input type="text" class="form-control">
+                        <input type="text" [(ngModel)]="empObj.pincode" class="form-control">
                     </div>
                     <div class="col-6">
                         <label for="">Address</label>
-                        <textarea name="" id="" class="form-control"></textarea>
+                        <textarea name="" id="" [(ngModel)]="empObj.address" class="form-control"></textarea>
                     </div>
                     <div class="col-6">
                         <label for="">Strength</label>
-                        <input type="text" class="form-control">
+                        <input type="text" [(ngModel)]="empObj.employeeStrength" class="form-control">
                     </div>
                     <div class="col-6">
                         <label for="">GST No.</label>
-                        <input type="text" class="form-control">
+                        <input type="text" [(ngModel)]="empObj.gstNo" class="form-control">
                     </div>
 
                     <div class="col-6">
                         <label for="">Register No.</label>
-                        <input type="text" class="form-control">
+                        <input type="text" [(ngModel)]="empObj.regNo" class="form-control">
                     </div>
                     <div class="row pt-2">
                         <div class="col-6 text-center">
                             <button class="btn btn-secondary">Reset</button>
                         </div>
                          <div class="col-6">
-                            <button class="btn btn-success">Save</button>
+                            <button class="btn btn-success" (click)="onSaveEmp()">
+                                {{empObj.clientId == 0 ? 'Save':'Update'}}
+                                </button>
                         </div>
           
                     </div>
