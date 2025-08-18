@@ -10,7 +10,7 @@ export const routes: Routes = [
     {
         path: 'employee', component : EmployeeComponent
     },
-    {
-        path : '', component: AppComponent
-    }
+    // {
+    //     path : '', component: AppComponent
+    // }
 ];
