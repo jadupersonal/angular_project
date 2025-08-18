@@ -1,0 +1,40 @@
+<div class="row">
+    <div class="col-7">
+        <div class="card">
+            <div class="card-header bg-success">
+                Client List
+            </div>
+            <div class="car-body">
+                <div class="col-12">
+                    <table class="table table-borderd">
+                        <thead>
+                            <tr>
+                                <th>Serial No.</th>
+                                <th>Employee Name</th>
+                                <th>Employee Id</th>
+                                <th>Employee Code</th>
+                                <th>Employee Email</th>
+                                <th>Employee Designation</th>
+                                <th>Employee Role</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @for(emp of clientList; track $index){
+                                <tr>
+                                    <td>{{$index+1}}</td>
+                                    <td>{{emp.empName}}</td>
+                                    <td>{{emp.empId}}</td>
+                                    <td>{{emp.empCode}}</td>
+                                    <td>{{emp.empEmailId}}</td>
+                                    <td>{{emp.empDesignation}}</td>
+                                    <td>{{emp.role}}</td>
+                                </tr>
+                            }
+                            
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,111 @@
+<div class="row">
+    <div class="col-8">
+        <div class="card">
+            <div class="card-header bg-success">
+                Employee List
+            </div>
+            <div class="card-bid">
+                <table class="table table-borderd">
+                    <thead>
+
+                        <tr>
+                            <th>Client Id</th>
+                            <th>Name</th>
+                            <th>Company</th>
+                            <th>City</th>
+                            <th>Pin Code</th>
+                            <th>State</th>
+                            <th>Strength</th>
+                            <th>GST</th>
+                            <th>Contact</th>
+                            <th>Reg No.</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @for(cln of clientList; track $index){
+                        <tr>
+                            <td>{{cln.clientId}}</td>
+                            <td>{{cln.contactPersonName}}</td>
+                            <td>{{cln.companyName}}</td>
+                            <td>{{cln.address}}</td>
+                            <td>{{cln.city}}</td>
+                            <td>{{cln.pincode}}</td>
+                            <td>{{cln.employeeStrength}}</td>
+                            <td>{{cln.gstNo}}</td>
+                            <td>{{cln.contactNo}}</td>
+                            <td>{{cln.regNo}}</td>
+
+                        </tr>
+                        }
+                    </tbody>
+
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="col-4">
+        <div class="card">
+            <div class="card-header bg-success">
+                New Employee
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-6">
+                        <label for="">Person Name</label>
+                        <input type="text" class="form-control">
+                    </div>
+                    <div class="col-6">
+                        <label for="">Company Name</label>
+                        <input type="text" class="form-control">
+                    </div>
+                    <div class="col-6">
+                        <label for="">Contact No.</label>
+                        <input type="text" class="form-control">
+                    </div>
+
+                    <div class="col-6">
+                        <label for="">City</label>
+                        <input type="text" class="form-control">
+                    </div>
+                    <div class="col-6">
+                        <label for="">State</label>
+                        <input type="text" class="form-control">
+                    </div>
+                    <div class="col-6">
+                        <label for="">Pin Code</label>
+                        <input type="text" class="form-control">
+                    </div>
+                    <div class="col-6">
+                        <label for="">Address</label>
+                        <textarea name="" id="" class="form-control"></textarea>
+                    </div>
+                    <div class="col-6">
+                        <label for="">Strength</label>
+                        <input type="text" class="form-control">
+                    </div>
+                    <div class="col-6">
+                        <label for="">GST No.</label>
+                        <input type="text" class="form-control">
+                    </div>
+
+                    <div class="col-6">
+                        <label for="">Register No.</label>
+                        <input type="text" class="form-control">
+                    </div>
+                    <div class="row pt-2">
+                        <div class="col-6 text-center">
+                            <button class="btn btn-secondary">Reset</button>
+                        </div>
+                         <div class="col-6">
+                            <button class="btn btn-success">Save</button>
+                        </div>
+          
+                    </div>
+                 
+                       
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
