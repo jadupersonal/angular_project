@@ -20,7 +20,7 @@
                             <th>GST</th> -->
                             <th>Contact</th>
                             <!-- <th>Reg No.</th> -->
-                             <th>Action</th>
+                            <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -37,9 +37,9 @@
                             <!-- <td>{{cln.gstNo}}</td> -->
                             <td>{{cln.contactNo}}</td>
                             <!-- <td>{{cln.regNo}}</td> -->
-                             <td><button class="btn btn-primary" (click)="onEdit(cln)">Edit</button></td>
-                             <td>
-                             <button class="btn btn-danger" (click)="onDelete(cln.clientId)">Delete</button>
+                            <td><button class="btn btn-primary" (click)="onEdit(cln)">Edit</button></td>
+                            <td>
+                                <button class="btn btn-danger" (click)="onDelete(cln.clientId)">Delete</button>
                             </td>
 
                         </tr>
@@ -56,64 +56,80 @@
                 New Employee
             </div>
             <div class="card-body">
-                <div class="row">
+                <form action="" #ngForm="ngForm">
+                    <div class="row">
                     <div class="col-6">
                         <label for="">Person Name</label>
-                        <input type="text" [(ngModel)]="empObj.contactPersonName" class="form-control">
+                        <input type="text" #personName="ngModel" minlength="5" required 
+                        name="contactPersonName"
+                            [(ngModel)]="empObj.contactPersonName" class="form-control">
+                        <div class="text-danger">
+                            @if (personName.touched){
+                            @if(personName?.errors?.['required']){
+                            <span>This Field is Required</span>
+
+                            }
+                            }
+                            @if (personName?.errors?.['minlength']){
+                                <span>Name Should be greater the 5 Character</span>
+                            }
+
+                        </div>
                     </div>
                     <div class="col-6">
                         <label for="">Company Name</label>
-                        <input type="text" [(ngModel)]="empObj.companyName" class="form-control">
+                        <input type="text" name="companyName" [(ngModel)]="empObj.companyName" class="form-control">
                     </div>
                     <div class="col-6">
                         <label for="">Contact No.</label>
-                        <input type="text" [(ngModel)]="empObj.contactNo" class="form-control">
+                        <input type="text" name="contactNo" [(ngModel)]="empObj.contactNo" class="form-control">
                     </div>
 
                     <div class="col-6">
                         <label for="">City</label>
-                        <input type="text" [(ngModel)]="empObj.city" class="form-control">
+                        <input type="text" name="city" [(ngModel)]="empObj.city" class="form-control">
                     </div>
                     <div class="col-6">
                         <label for="">State</label>
-                        <input type="text" [(ngModel)]="empObj.state" class="form-control">
+                        <input type="text" name="state" [(ngModel)]="empObj.state" class="form-control">
                     </div>
                     <div class="col-6">
                         <label for="">Pin Code</label>
-                        <input type="text" [(ngModel)]="empObj.pincode" class="form-control">
+                        <input type="text" name="pincode" [(ngModel)]="empObj.pincode" class="form-control">
                     </div>
                     <div class="col-6">
                         <label for="">Address</label>
-                        <textarea name="" id="" [(ngModel)]="empObj.address" class="form-control"></textarea>
+                        <textarea name="address" id="" [(ngModel)]="empObj.address" class="form-control"></textarea>
                     </div>
                     <div class="col-6">
                         <label for="">Strength</label>
-                        <input type="text" [(ngModel)]="empObj.employeeStrength" class="form-control">
+                        <input type="text" name="employeeStrength" [(ngModel)]="empObj.employeeStrength" class="form-control">
                     </div>
                     <div class="col-6">
                         <label for="">GST No.</label>
-                        <input type="text" [(ngModel)]="empObj.gstNo" class="form-control">
+                        <input type="text" name="gstNo" [(ngModel)]="empObj.gstNo" class="form-control">
                     </div>
 
                     <div class="col-6">
                         <label for="">Register No.</label>
-                        <input type="text" [(ngModel)]="empObj.regNo" class="form-control">
+                        <input type="text" name="regNo" [(ngModel)]="empObj.regNo" class="form-control">
                     </div>
                     <div class="row pt-2">
                         <div class="col-6 text-center">
                             <button class="btn btn-secondary">Reset</button>
                         </div>
-                         <div class="col-6">
-                            <button class="btn btn-success" (click)="onSaveEmp()">
+                        <div class="col-6">
+                            <button class="btn btn-success" [disabled]="!ngForm.valid" (click)="onSaveEmp()">
                                 {{empObj.clientId == 0 ? 'Save':'Update'}}
-                                </button>
+                            </button>
                         </div>
-          
+
                     </div>
-                 
-                       
-                    
+
+
+
                 </div>
+                </form>
             </div>
         </div>
     </div>
