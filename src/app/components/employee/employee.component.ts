@@ -33,7 +33,6 @@ export class EmployeeComponent implements OnInit {
   }
 
   onSaveEmp() {
-    // debugger;
     this.clientSrv.addUpdateClient(this.empObj).subscribe((res: APIResponse) => {
       if (res.result) {
         alert('Client is Created')
